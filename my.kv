@@ -1,0 +1,202 @@
+WindowManager:
+    Home:
+        id: Home
+    Home_Reg
+        id: Home_Reg
+    Register1:
+        id: Reg1
+    Register2:
+        id: Reg2
+
+
+<Home>:
+    name: "Home"
+    MDLabel:
+        text: 'Welcome!'
+        halign: 'center'
+        color: app.theme_cls.primary_color
+        pos_hint: {"center_y": 0.6}
+        font_size: 40
+
+    MDLabel:
+        text: 'Track Your Emissions, Help The Earth'
+        halign: 'center'
+        color: app.theme_cls.primary_color
+        pos_hint: {"center_y": 0.5}
+
+    MDRoundFlatButton:
+        text: "Login"
+        pos_hint: {"x":0, "top":1}
+        size_hint: 0.3, 0.2
+        on_release:
+            app.root.current = "Reg1"
+            root.manager.transition.direction = "right"
+
+
+
+<Home_Reg>:
+    name: "Home_Reg"
+    MDLabel:
+        id: Custom_Welcome
+        text: ''
+        halign: 'center'
+        color: app.theme_cls.primary_color
+        pos_hint: {"center_y": 0.6}
+        font_size: 40
+    NavBar:
+        size_hint: 0.85, 0.1
+        pos_hint: {"center_x": 0.5, "center_y": 0.1}
+        elevation: 10
+        radius: [16]
+        MDGridLayout:
+            cols: 4
+            size_hint_x: 0.9
+            spacing: 8
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            MDIconButton:
+                id: nav_icon1
+                icon: "home"
+                user_font_size: '30sp'
+                theme_text_color: "Custom"
+                text_color: app.theme_cls.primary_color
+
+
+
+            MDIconButton:
+                id: nav_icon2
+                icon: "login"
+                user_font_size: '30sp'
+                theme_text_color: "Custom"
+                text_color: app.theme_cls.primary_color
+                on_release:
+                    app.root.current = "Reg1"
+                    root.manager.transition.direction = "right"
+
+            MDIconButton:
+                id: nav_icon3
+                icon: "account-settings"
+                user_font_size: '30sp'
+                theme_text_color: "Custom"
+                text_color: app.theme_cls.primary_color
+
+            MDIconButton:
+                id: nav_icon4
+                icon: "train-car"
+                user_font_size: '30sp'
+                theme_text_color: "Custom"
+                text_color: app.theme_cls.primary_color
+
+
+<Register1>:
+    name: "Reg1"
+    email: email
+    username: name
+    password: password
+
+    MDCard:
+        size_hint: None, None
+        size: 300, 400
+        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+        padding: 25
+        spacing: 25
+        orientation: 'vertical'
+
+        MDLabel:
+            id: welcome_label
+            text: 'Register'
+            font_size: 36
+            halign: 'center'
+            size_hint_y: None
+            height: self.texture_size[1]
+            padding_y: 15
+
+        MDTextFieldRound:
+            id: name
+            hint_text: "Name"
+            icon_right: "account"
+            normal_color: app.theme_cls.primary_color
+            size_hint_x: None
+            width: 200
+            font_size: 18
+            pos_hint: {"center_x": 0.5}
+
+        MDTextFieldRound:
+            id: email
+            hint_text: "Email"
+            icon_right: "email"
+            normal_color: app.theme_cls.primary_color
+            size_hint_x: None
+            width: 200
+            font_size: 18
+            pos_hint: {"center_x": 0.5}
+
+        MDTextFieldRound:
+            id: password
+            hint_text: "Password"
+            icon_right: "key-variant"
+            normal_color: app.theme_cls.primary_color
+            size_hint_x: None
+            width: 200
+            font_size: 18
+            pos_hint: {"center_x": 0.5}
+            password: True
+
+        MDRoundFlatButton:
+            text: "Next"
+            font_size: "16"
+            pos_hint: {"center_x": 0.5}
+            on_press:
+                root.val_email()
+                root.store()
+                root.manager.transition.direction = "left"
+
+        Widget:
+            size_hint_y: None
+            height: 20
+
+<Register2>:
+    name: "Reg2"
+
+
+
+    BoxLayout:
+        orientation: "vertical"
+        size: root.width, root.height
+
+        Label:
+            id: click_label
+            text: "What is your Car Type?"
+            font_size: 36
+            color: 0.1, 0.5, 0.6, 1
+        Spinner:
+            id: spinner_id
+            size_hint: 0.3, 0.5
+            pos_hint: {"x": 0.35}
+            text: "Car Type"
+            color: 0.1, 0.5, 0.6, 1
+            values: ["Passenger Car", "Light-duty Truck", "Heavy-duty or Mid-duty Truck", "Motorcycle"]
+
+            on_text: root.spinner_clicked(spinner_id.text)
+
+        Label:
+            text: ''
+        MDRoundFlatButton:
+            text: "Submit"
+            font_size: "30"
+            pos_hint: {"center_x": 0.5}
+            on_press:
+                root.Reg_Submit()
+                app.root.current = "Home_Reg"
+
+
+        Label:
+            text: ''
+
+
+    MDRoundFlatButton:
+        text: "Go Back"
+        pos_hint: {"x":0, "top":1}
+        size_hint: 0.1, 0.1
+        on_release:
+            app.root.current = "Reg1"
+            root.manager.transition.direction = "right"

@@ -1,0 +1,40 @@
+{
+  "Users": [
+    {
+      "name": "fsd",
+      "email": "fsa@gmail.com",
+      "password:": "fsdafsfsdaa",
+      "cartype": "Light-duty Truck"
+    },
+    {
+      "name": "Shrey ",
+      "email": "shre@gmail.com",
+      "password:": "fdsafsad",
+      "cartype": "Passenger Car"
+    },
+    {
+      "name": "Shrey",
+      "email": "shre@gmail.com",
+      "password:": "fsadfs",
+      "cartype": "Passenger Car"
+    },
+    {
+      "name": "shreyd",
+      "email": "shre123@gmail.com",
+      "password:": "fdsagfewr3",
+      "cartype": "Passenger Car"
+    },
+    {
+      "name": "Blake",
+      "email": "blakeeee@gmail.com",
+      "password:": "fsdaguea",
+      "cartype": "Light-duty Truck"
+    },
+    {
+      "name": "Scott",
+      "email": "ssmith@gmail.com",
+      "password:": "hjdsoyfdsj",
+      "cartype": "Passenger Car"
+    }
+  ]
+}
