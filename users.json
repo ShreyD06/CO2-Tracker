@@ -35,6 +35,12 @@
       "email": "ssmith@gmail.com",
       "password:": "hjdsoyfdsj",
       "cartype": "Passenger Car"
+    },
+    {
+      "name": "randuser",
+      "email": "ruser@gmail.com",
+      "password:": "fdsa",
+      "cartype": "Light-duty Truck"
     }
   ]
 }
